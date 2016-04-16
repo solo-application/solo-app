@@ -1,32 +1,58 @@
 <ion-side-menus enable-menu-with-back-views="true">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+      <!-- <ion-nav-back-button>
+      </ion-nav-back-button> -->
 
-      <!-- <ion-nav-buttons side="left">
+      <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
-      </ion-nav-buttons> -->
+      </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <!-- <ion-side-menu side="left" class="dark-menu">
+  <ion-side-menu side="left" class="dark-menu">
     <ion-header-bar class="bar-stable dark-menu">
-      <p class="title">Solo</p>
+      <p class="title">WatchfulEye</p>
     </ion-header-bar>
     <ion-content class="dark-menu">
       <ion-list class="dark-menu">
-        <ion-item menu-close href="#/home" class="item-icon-left">
-          <i class="icon icon-card ion-ios-search-strong"></i>
-          Search
+        <div class="item item-divider">
+          Traveller
+        </div>
+        <ion-item menu-close ui-sref="#" class="item-icon-left">
+          <i class="icon icon-card ion-alert"></i>
+          Threats
         </ion-item>
-        <ion-item menu-close href="#" class="item-icon-left">
-          <i class="icon icon-card ion-arrow-swap"></i>
-          Comparison
+        <ion-item menu-close ui-sref="#" class="item-icon-left">
+          <i class="icon icon-card ion-plus-round"></i>
+          Add Trip
+        </ion-item>
+        <ion-item menu-close ui-sref="app.traveller" class="item-icon-left">
+          <i class="icon icon-card ion-person-add"></i>
+          Add Companion
+        </ion-item>
+        <div class="item item-divider">
+          Companion
+        </div>
+        <ion-item menu-close ui-sref="app.companion({type: 'current'})" class="item-icon-left">
+          <i class="icon icon-card ion-person"></i>
+          Current
+        </ion-item>
+        <ion-item menu-close ui-sref="app.companion({type: 'pending'})" class="item-icon-left">
+          <i class="icon icon-card ion-person-stalker"></i>
+          Pending
+        </ion-item>
+        <ion-item menu-close ui-sref="app.profile" class="item-icon-left">
+          <i class="icon icon-card ion-android-create"></i>
+          Profile
+        </ion-item>
+        <ion-item menu-close ng-click="logOut()" class="item-icon-left">
+          <i class="icon icon-card ion-settings"></i>
+          Log Out
         </ion-item>
       </ion-list>
     </ion-content>
-  </ion-side-menu> -->
+  </ion-side-menu>
 </ion-side-menus>

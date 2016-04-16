@@ -3,7 +3,7 @@
 angular.module('starter')
 .controller('DashboardCtrl', DashboardCtrl);
 
-  function DashboardCtrl($scope, UserSession) {
+  function DashboardCtrl($scope, UserSession, $state) {
     UserSession.reload();
-    $scope.currentUser = UserSession.user;
+    if(!UserSession.user) $state.go('app.login');
   }
