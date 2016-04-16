@@ -5,5 +5,5 @@ angular.module('starter')
 
   function DashboardCtrl($scope, UserSession, $state) {
     UserSession.reload();
-    if(!UserSession.user) $state.go('app.login');
+    if(!UserSession.user) {$state.go('app.login')};
   }

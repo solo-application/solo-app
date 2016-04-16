@@ -1,0 +1,20 @@
+<ion-view view-title="Traveller">
+  <ion-content class="traveller">
+    <div row="row responsive-sm">
+      <img src="img/travel-header.png">
+      <div class="card" ng-repeat="trip in trips">
+        <div class="item item-divider">
+          {{trip.country_name}}
+          <i class="icon ion-edit" ng-click="addTrip(trip)"></i>
+          <i class="icon ion-trash-a" ng-click="removeTrip(trip)"></i>
+        </div>
+        <div class="item item-text-wrap">Arriving in a {{trip.transport}} and staying in a {{trip.hotel}}</div>
+      </div>
+      <div class="row">
+        <div class="col col-offset-10"></div>
+        <i class="icon ion-ios-plus-outline col" ng-click="addTrip(false)" style="color: white; font-size: 35px;"></i>
+        <div class="col"></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

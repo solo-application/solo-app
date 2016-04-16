@@ -2,13 +2,23 @@
   <ion-content class="companion">
     <div row="row responsive-sm">
       <img ng-src="img/logo.png" class="col col-offset-25" style="width: auto; height: 200px;">
-      <div class="row">
+      <div class="row responsive-lg">
         <a class="col-33 persona" ng-click="viewTraveller(traveller)" ng-repeat="traveller in travellers">
           <img src="img/companion.png">
           <h3>{{traveller.username}}</h3>
+          <div class="row padding-horizontal" ng-if="type === 'pending'">
+            <div class="col"></div>
+            <button class="button button-small col-10 button-balanced" ng-click="acceptTraveller(traveller)" ng-disabled="processing">Accept</button>
+            <button class="button button-small col-10 button-assertive" ng-click="denyTraveller(traveller)" ng-disabled="processing">Deny</button>
+            <div class="col"></div>
+          </div>
         </a>
       </div>
-      <i class="icon ion-ios-plus-outline col-offset-75" ng-click="showSearchModal()"></i>
+      <div class="row">
+        <div class="col col-offset-10"></div>
+        <i class="icon ion-ios-plus-outline col" ng-click="showSearchModal()"></i>
+        <div class="col"></div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

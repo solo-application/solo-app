@@ -3,14 +3,18 @@
 angular.module('starter')
 .controller('CompanionCtrl', CompanionCtrl);
 
-  function CompanionCtrl($scope, $state, $http, apiUrl, UserSession, $ionicModal, $cordovaGeolocation, $ionicPopup) {
+  function CompanionCtrl($scope, $state, $http, apiUrl, UserSession, $ionicModal, $cordovaGeolocation, $ionicPopup, $stateParams) {
     $scope.travellers = [];
     $scope.users      = [];
-    $http.get(apiUrl + '/users/' + UserSession.user.id + '/links', {})
+    $scope.type       = $stateParams.type
+    if(!$scope.type) $state.go('app.companion', {type: 'current'})
+    $http.get(apiUrl + '/users/' + UserSession.user.id + '/links', { params: { type: $scope.type } })
     .then(function(response) {
       console.log(response)
       response.data.links.forEach(function(link) {
-        $scope.travellers.push(link.companion);
+        var hash     = link.companion
+        hash.link_id = link.id
+        $scope.travellers.push(hash);
       });
     }).catch(function(err) {
       console.log(err);
@@ -40,15 +44,43 @@ angular.module('starter')
       $scope.processing = true;
       $http.post(apiUrl + '/users/' + UserSession.user.id + '/links', { link: { companion_id: companion_id, traveller_id: UserSession.user.id } }, {})
       .then(function(response) {
-        $scope.travellers.push(response.data.link.companion)
+        var hash     = response.data.link.companion
+        hash.link_id = response.data.link.id
+        $scope.travellers.push(hash)
         $scope.processing = false;
         $scope.searchModal.hide();
       }).catch(function(err) {
         console.log(err);
+        $scope.processing = false;
+      })
+    }
+
+    $scope.acceptTraveller = function(traveller) {
+      $scope.processing = true;
+      $http.put(apiUrl + '/users/' + UserSession.user.id + '/links/' + traveller.link_id, { link: { match_confirmed: true } }, {})
+      .then(function(response) {
+        $scope.travellers.splice($scope.travellers.indexOf(traveller), 1);
+        $scope.processing = false;
+      }).catch(function(err) {
+        console.log(err);
+        $scope.processing = false;
+      })
+    }
+
+    $scope.denyTraveller = function(traveller) {
+      $scope.processing = true;
+      $http.get(apiUrl + '/users/' + UserSession.user.id + '/links/' + traveller.link_id + '/destroy', {})
+      .then(function(response) {
+        $scope.travellers.splice(array.indexOf(traveller), 1);
+        $scope.processing = false;
+      }).catch(function(err) {
+        console.log(err);
+        $scope.processing = false;
       })
     }
 
     $scope.viewTraveller = function(traveller) {
+      if($scope.type == 'pending') { return true; }
       $http.get(apiUrl + '/users/' + traveller.id + '/trips', { params: { current_only: true } })
       .then(function(response) {
         console.log(response);

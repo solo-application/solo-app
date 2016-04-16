@@ -106,6 +106,10 @@ body {
   color: white;
   font-size: 40px;
 }
+.companion .button {
+  margin: 8px;
+  font-size: 15px;
+}
 /* Search Modal */
 .search-modal {
   color: white;
@@ -149,4 +153,43 @@ body {
 .view-traveller img {
   width: 100%;
   height: auto;
+}
+.view-traveller .item {
+  text-align: center;
+}
+/* Traveller Page */
+.traveller img {
+  width: 100%;
+  height: auto;
+}
+.traveller .item {
+  text-align: center;
+}
+.traveller .item-divider i {
+  margin: 0px 5px;
+  float: right;
+}
+/* Add trip modal */
+.add-trip .bar-header i {
+  color: black;
+  font-size: 35px;
+}
+.add-trip form .item-stacked-label {
+  border: none;
+  text-align: center;
+}
+.add-trip form .input-label {
+  /*margin-bottom: 20px;*/
+  color: #777777;
+}
+.add-trip form .item-input input {
+  text-align: center;
+  border: none;
+  background: transparent;
+  color: white;
+}
+.add-trip form .button-positive {
+  margin-top: 20px;
+  background-color: #bb07f2;
+  border-radius: 20px;
 }

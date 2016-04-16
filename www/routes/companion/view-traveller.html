@@ -6,17 +6,15 @@
   <ion-content>
     <div row="row responsive-sm">
       <img src="img/travel-header.png">
-      <div>
-        <label>Country</label>
-        <p>{{trip.country_name}}</p>
-      </div>
-      <div>
-        <label>Hotel</label>
-        <p>{{trip.hotel}}</p>
-      </div>
-      <div>
-        <label>Start Date</label>
-        <p>{{trip.start_date}}</p>
+      <div class="list">
+        <div class="item">
+          <h2>Country</h2>
+          <p>{{selectedTraveller.country_name}}</p>
+        </div>
+        <div class="item">
+          <h2>Hotel</h2>
+          <p>{{selectedTraveller.hotel}}</p>
+        </div>
       </div>
       <div class="row">
         <div class="col"></div>

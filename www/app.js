@@ -61,7 +61,7 @@ angular.module('starter', [
       }
     })
     .state('app.companion', {
-      url: '^/companion',
+      url: '^/companion/:type',
       views: {
         'menuContent': {
           templateUrl: 'routes/companion/companion.html',
