@@ -58,6 +58,24 @@ angular.module('starter', [
           controller: 'DashboardCtrl'
         }
       }
+    })
+    .state('app.companion', {
+      url: '^/companion',
+      views: {
+        'menuContent': {
+          templateUrl: 'routes/companion/companion.html',
+          controller: 'CompanionCtrl'
+        }
+      }
+    })
+    .state('app.traveller', {
+      url: '^/traveller',
+      views: {
+        'menuContent': {
+          templateUrl: 'routes/traveller/traveller.html',
+          controller: 'TravellerCtrl'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/home');

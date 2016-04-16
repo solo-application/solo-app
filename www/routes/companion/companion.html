@@ -1,0 +1,14 @@
+<ion-view view-title="Companions">
+  <ion-content class="companion">
+    <div row="row responsive-sm">
+      <img ng-src="img/logo.png" class="col col-offset-25" style="width: auto; height: 200px;">
+      <div class="row" ng-repeat="companion in companions">
+        <a class="col-33 persona" ui-sref="#">
+          <img src="img/companion.png">
+          <h3>{{companion.username}}</h3>
+        </a>
+      </div>
+      <i class="icon ion-ios-plus-outline col-offset-75" ng-click="showSearchModal()"></i>
+    </div>
+  </ion-content>
+</ion-view>
