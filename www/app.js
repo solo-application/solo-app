@@ -1,8 +1,7 @@
 angular.module('starter', [
   'ionic',
   'ngResource',
-  'ui.router',
-  'ng-token-auth'
+  'ui.router'
 ])
 
 .run(function($ionicPlatform) {
@@ -16,7 +15,7 @@ angular.module('starter', [
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider, $authProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('app', {
       url: '/app',
@@ -50,12 +49,23 @@ angular.module('starter', [
           controller: 'SignUpCtrl'
         }
       }
+    })
+    .state('app.dashboard', {
+      url: '^/dashboard',
+      views: {
+        'menuContent': {
+          templateUrl: 'routes/dashboard/dashboard.html',
+          controller: 'DashboardCtrl'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise('/home');
-
-  $authProvider.configure({
-    apiUrl: 'https://formidableforms.herokuapp.com'
-  });
 })
-.constant('apiUrl', 'http://localhost:3000/v1');
+.constant('apiUrl', 'https://solo-api-production.herokuapp.com/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
+.service('UserSession', function($window) {
+  this.user = JSON.parse($window.localStorage.getItem('current-user'));
+  this.reload = function() {
+    this.user = JSON.parse($window.localStorage.getItem('current-user'));
+  }
+});
