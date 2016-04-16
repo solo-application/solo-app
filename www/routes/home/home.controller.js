@@ -3,6 +3,8 @@
 angular.module('starter')
 .controller('HomeCtrl', HomeCtrl);
 
-  function HomeCtrl($scope, UserSession) {
-    $scope.user = UserSession.user
+  function HomeCtrl($timeout, $state) {
+    $timeout(function() {
+      $state.go('app.login')
+    }, 3000);
   }

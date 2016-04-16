@@ -62,7 +62,7 @@ angular.module('starter', [
 
   $urlRouterProvider.otherwise('/home');
 })
-.constant('apiUrl', 'https://solo-api-production.herokuapp.com/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
+.constant('apiUrl', 'http://localhost:3000/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
 .service('UserSession', function($window) {
   this.user = JSON.parse($window.localStorage.getItem('current-user'));
   this.reload = function() {

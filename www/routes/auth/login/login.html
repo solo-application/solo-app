@@ -1,17 +1,31 @@
-<ion-view view-title="Log In">
-  <ion-content>
-    <form ng-submit="logIn()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" ng-model="user.email" ng-required="true">
+<ion-view view-title="Log In" hide-back-button="true" hide-nav-bar="true">
+  <ion-content class="login">
+    <img ng-src="img/logo.png" class="col">
+    <div row="row responsive-sm">
+      <form ng-submit="logIn()">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="user.username" placeholder="Blank" ng-required="true">
         </label>
-        <label class="item item-input">
+        <label class="item item-input item-stacked-label">
           <span class="input-label">Password</span>
-          <input type="password" ng-model="user.password" ng-required="true">
+          <input type="password" ng-model="user.password" placeholder="*****" ng-required="true">
         </label>
-        <button class="button button-block button-positive" type="submit">Log In</button>
+        <div class="row">
+          <div class="col-10"></div>
+          <button class="button button-block button-positive col" type="submit">Log In</button>
+          <div class="col-10"></div>
+        </div>
+      </form>
+      <div class="breaker">
+        <p>OR<p>
       </div>
-    </form>
+      <div class="button-bar padding-horizontal row">
+        <div class="col-10"></div>
+        <button class="button button-small button-block button-positive" ui-sref="app.signup">Sign Up</button>
+        <button class="button button-small button-block button-positive">Forgot Password?</button>
+        <div class="col-10"></div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
