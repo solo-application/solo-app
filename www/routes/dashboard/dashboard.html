@@ -1,6 +1,18 @@
-<ion-view view-title="Dashboard" hide-back-button="true">
-  <ion-content ng-controller="HomeCtrl">
-    <div class="list list-inset">
+<ion-view view-title="Dashboard" hide-back-button="true" hide-nav-bar="true">
+  <ion-content class="dashboard">
+    <div row="row responsive-sm">
+      <img ng-src="img/logo.png" class="col col-offset-25" style="width: auto; height: 200px;">
+      <h4>Log in as:</h4>
+      <div class="row">
+        <a class="col" ui-sref="app.companion">
+          <img src="img/companion.png">
+          <h3>Companion</h3>
+        </a>
+        <a class="col" ui-sref="app.traveller">
+          <img src="img/traveller.png">
+          <h3>Traveller</h3>
+        </a>
+      </div>
     </div>
   </ion-content>
 </ion-view>

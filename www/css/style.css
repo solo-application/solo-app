@@ -1,35 +1,35 @@
 .scroll-content {
   background-image: url('../img/background-image.png');
 }
-/* Home page */
-.login form .item-stacked-label {
+/* login and signup pages */
+.auth-page form .item-stacked-label {
   border: none;
   text-align: center;
 }
-.login form .input-label {
+.auth-page form .input-label {
   margin-bottom: 20px;
   color: #777777;
 }
-.login form .item-input input {
+.auth-page form .item-input input {
   text-align: center;
   border: none;
   background: transparent;
   color: white;
 }
-.login form .button-positive {
+.auth-page form .button-positive {
   margin-top: 20px;
   background-color: #bb07f2;
   border-radius: 20px;
 }
-.login .breaker {
+.auth-page .breaker {
   color: #777777;
   text-align: center;
   margin: 15px 0px;
 }
-.login .breaker p {
+.auth-page .breaker p {
   margin-top: 0px;
 }
-.login .button-bar .button-positive {
+.auth-page .button-bar .button-positive {
   background-color: transparent;
   border: 1px solid #bb07f2;
   font-size: 12px;
@@ -37,15 +37,36 @@
   margin: 0px;
   width: 50%;
 }
-.login .button-bar .button-positive:nth-child(2) {
+.auth-page .button-bar .button-positive:nth-child(2) {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.login .button-bar .button-positive:nth-child(3) {
+.auth-page .button-bar .button-positive:nth-child(3) {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+/* Dashboard */
+.dashboard {
+  text-align: center;
+  color: white;
+}
+.dashboard h4 {
+  color: white;
+  margin: 0px;
+}
+.dashboard a {
+  background-color: darkgrey;
+  border: 1px solid grey;
+}
+.dashboard a img {
+  width: 100%;
+  height: auto;
+}
+.dashboard a h3 {
+  margin-top: 0px;
+  color: white;
 }

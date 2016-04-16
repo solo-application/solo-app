@@ -4,6 +4,6 @@ angular.module('starter')
 .controller('DashboardCtrl', DashboardCtrl);
 
   function DashboardCtrl($scope, UserSession) {
-    $scope.currentUser = UserSession.user
-    console.log($scope.currentUser);
+    UserSession.reload();
+    $scope.currentUser = UserSession.user;
   }

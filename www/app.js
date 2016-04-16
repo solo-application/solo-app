@@ -64,8 +64,13 @@ angular.module('starter', [
 })
 .constant('apiUrl', 'http://localhost:3000/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
 .service('UserSession', function($window) {
-  this.user = JSON.parse($window.localStorage.getItem('current-user'));
+  this.user = null;
   this.reload = function() {
-    this.user = JSON.parse($window.localStorage.getItem('current-user'));
+    try {
+      this.user = JSON.parse($window.localStorage.getItem('current-user'));
+    } catch(e) {
+      this.user = null;
+    }
   }
+  this.reload();
 });

@@ -3,13 +3,14 @@
 angular.module('starter')
 .controller('LogInCtrl', LogInCtrl);
 
-  function LogInCtrl($scope, $window, $ionicPopup, $http, apiUrl, UserSession) {
+  function LogInCtrl($scope, $state, $window, $ionicPopup, $http, apiUrl, UserSession) {
     $scope.user = {};
 
     $scope.logIn = function() {
-      $http.get(apiUrl + '/users/current_user', { user: $scope.user }, {}).then(function(response) {
-        $window.localStorage.setItem('current-user', JSON.stringify(response.user));
-        UserSession.reload();
+      $http.get(apiUrl + '/users/current_user', { params: { username: $scope.user.username, password: $scope.user.password } })
+      .then(function(response) {
+        $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
+        $scope.user = {};
         $state.go('app.dashboard');
       }).catch(function(err) {
         console.log(err);
@@ -17,14 +18,6 @@ angular.module('starter')
           title: 'Could not login',
           template: 'Please try again'
         });
-      });
-    }
-
-    if(UserSession.user) {
-      $http.get(apiUrl + '/users/' + UserSession.user.id, {}).then(function(response) {
-        $state.go('app.dashboard');
-      }).catch(function(err) {
-        $window.localStorage.removeItem('current-user');
       });
     }
   }
