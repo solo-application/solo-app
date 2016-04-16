@@ -1,7 +1,8 @@
 angular.module('starter', [
   'ionic',
   'ngResource',
-  'ui.router'
+  'ui.router',
+  'ngCordova'
 ])
 
 .run(function($ionicPlatform) {

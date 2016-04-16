@@ -7,6 +7,14 @@ body {
 .scroll-content {
   background-image: url('../img/background-image.png');
 }
+.scroll {
+  height: 100%;
+}
+#map {
+  /*width: 60%;*/
+  height: 300px;
+  border-radius: 20px;
+}
 /* login and signup pages */
 .auth-page form .item-stacked-label {
   border: none;
@@ -132,4 +140,13 @@ body {
 .search-modal .list-inset .item-button-right .button-positive {
   background-color: #bb07f2;
   border-radius: 40px;
+}
+/* View Traveller Modal */
+.view-traveller .bar-header i {
+  color: black;
+  font-size: 35px;
+}
+.view-traveller img {
+  width: 100%;
+  height: auto;
 }

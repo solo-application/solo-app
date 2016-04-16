@@ -1,0 +1,28 @@
+<ion-modal-view class="view-traveller">
+  <ion-header-bar>
+    <i class="icon ion-ios-close-outline" ng-click="hideModal('traveller')"></i>
+    <h1 class="title">{{selectedTraveller.username}}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div row="row responsive-sm">
+      <img src="img/travel-header.png">
+      <div>
+        <label>Country</label>
+        <p>{{trip.country_name}}</p>
+      </div>
+      <div>
+        <label>Hotel</label>
+        <p>{{trip.hotel}}</p>
+      </div>
+      <div>
+        <label>Start Date</label>
+        <p>{{trip.start_date}}</p>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div id="map" class="col-80" data-tap-disabled="true"></div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
