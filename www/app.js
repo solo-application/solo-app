@@ -90,7 +90,7 @@ angular.module('starter', [
 
   $urlRouterProvider.otherwise('/home');
 })
-.constant('apiUrl', 'http://localhost:3000/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
+.constant('apiUrl', 'https://solo-api-production.herokuapp.com/v1') // 'https://solo-api-production.herokuapp.com/v1' || 'http://localhost:3000/v1'
 .service('UserSession', function($window) {
   this.user = null;
   this.reload = function() {
