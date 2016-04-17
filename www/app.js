@@ -70,11 +70,20 @@ angular.module('starter', [
       }
     })
     .state('app.traveller', {
-      url: '^/traveller',
+      url: '^/traveller/:exec',
       views: {
         'menuContent': {
           templateUrl: 'routes/traveller/traveller.html',
           controller: 'TravellerCtrl'
+        }
+      }
+    })
+    .state('app.profile', {
+      url: '^/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'routes/profile/profile.html',
+          controller: 'ProfileCtrl'
         }
       }
     });

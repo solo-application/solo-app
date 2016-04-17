@@ -7,53 +7,18 @@ angular.module('starter')
     $scope.travellers = [];
     $scope.users      = [];
     $scope.type       = $stateParams.type
-    if(!$scope.type) $state.go('app.companion', {type: 'current'})
+    if(!$scope.type) { $state.go('app.companion', {type: 'current'}); }
     $http.get(apiUrl + '/users/' + UserSession.user.id + '/links', { params: { type: $scope.type } })
     .then(function(response) {
       console.log(response)
       response.data.links.forEach(function(link) {
-        var hash     = link.companion
+        var hash     = link.traveller
         hash.link_id = link.id
         $scope.travellers.push(hash);
       });
     }).catch(function(err) {
       console.log(err);
     });
-
-    $scope.showSearchModal = function() {
-      $ionicModal.fromTemplateUrl("routes/companion/search-modal.html", {
-        scope: $scope,
-        animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.searchModal = modal;
-        $scope.searchModal.show();
-      });
-    };
-
-    $scope.searchUsers = function(keyword) {
-      $http.get(apiUrl + '/users/' + UserSession.user.id + '/search', { params: { keyword: keyword } })
-      .then(function(response) {
-        $scope.users = response.data.users;
-      }).catch(function(err) {
-        console.log(err);
-        $scope.users = [];
-      })
-    }
-
-    $scope.addCompanion = function(companion_id) {
-      $scope.processing = true;
-      $http.post(apiUrl + '/users/' + UserSession.user.id + '/links', { link: { companion_id: companion_id, traveller_id: UserSession.user.id } }, {})
-      .then(function(response) {
-        var hash     = response.data.link.companion
-        hash.link_id = response.data.link.id
-        $scope.travellers.push(hash)
-        $scope.processing = false;
-        $scope.searchModal.hide();
-      }).catch(function(err) {
-        console.log(err);
-        $scope.processing = false;
-      })
-    }
 
     $scope.acceptTraveller = function(traveller) {
       $scope.processing = true;
@@ -71,7 +36,7 @@ angular.module('starter')
       $scope.processing = true;
       $http.get(apiUrl + '/users/' + UserSession.user.id + '/links/' + traveller.link_id + '/destroy', {})
       .then(function(response) {
-        $scope.travellers.splice(array.indexOf(traveller), 1);
+        $scope.travellers.splice($scope.travellers.indexOf(traveller), 1);
         $scope.processing = false;
       }).catch(function(err) {
         console.log(err);
@@ -125,8 +90,6 @@ angular.module('starter')
     $scope.hideModal = function(keyword) {
       if(keyword == 'traveller') {
         $scope.travellerModal.hide();
-      } else if(keyword == 'search') {
-        $scope.searchModal.hide();
       }
     };
   }

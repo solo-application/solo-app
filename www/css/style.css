@@ -110,6 +110,10 @@ body {
   margin: 8px;
   font-size: 15px;
 }
+.companion h2 {
+  text-align: center;
+  color: white;
+}
 /* Search Modal */
 .search-modal {
   color: white;
@@ -158,9 +162,16 @@ body {
   text-align: center;
 }
 /* Traveller Page */
-.traveller img {
+.traveller img:first-child {
   width: 100%;
   height: auto;
+}
+.traveller img:nth-child(2) {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  height: 80px;
+  width: auto;
 }
 .traveller .item {
   text-align: center;

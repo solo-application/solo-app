@@ -9,7 +9,9 @@ angular.module('starter')
     $scope.signUp = function() {
       $http.post(apiUrl + '/users', { user: $scope.newUser }, {}).then(function(response) {
         console.log(response)
+        $window.localStorage.removeItem('current-user');
         $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
+        UserSession.reload();
         $scope.user = {};
         $state.go('app.dashboard');
       }).catch(function(err) {

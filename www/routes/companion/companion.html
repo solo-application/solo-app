@@ -1,4 +1,4 @@
-<ion-view view-title="Companions">
+<ion-view view-title="Companion">
   <ion-content class="companion">
     <div row="row responsive-sm">
       <img ng-src="img/logo.png" class="col col-offset-25" style="width: auto; height: 200px;">
@@ -13,11 +13,7 @@
             <div class="col"></div>
           </div>
         </a>
-      </div>
-      <div class="row">
-        <div class="col col-offset-10"></div>
-        <i class="icon ion-ios-plus-outline col" ng-click="showSearchModal()"></i>
-        <div class="col"></div>
+        <h2 ng-if="travellers.length === 0">No Travellers</h2>
       </div>
     </div>
   </ion-content>

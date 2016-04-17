@@ -9,7 +9,9 @@ angular.module('starter')
     $scope.logIn = function() {
       $http.get(apiUrl + '/users/current_user', { params: { username: $scope.user.username, password: $scope.user.password } })
       .then(function(response) {
+        $window.localStorage.removeItem('current-user');
         $window.localStorage.setItem('current-user', JSON.stringify(response.data.user));
+        UserSession.reload();
         $scope.user = {};
         $state.go('app.dashboard');
       }).catch(function(err) {
